@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="cd64dc3b-47a4-4a75-8f49-76467acfbc19" kpf_version="5" name="HTTPFileServer.komodoproject">
+<livefolder id="128a3908-14c2-4abd-b0fa-f98586ff191c" idref="cd64dc3b-47a4-4a75-8f49-76467acfbc19" name="stylesheets" url="static/stylesheets">
+</livefolder>
+<file id="2a6ec950-63d4-4111-9350-91cd33a64900" idref="cd64dc3b-47a4-4a75-8f49-76467acfbc19" name="app.js" url="app.js">
+</file>
+<livefolder id="31a6098b-e3a7-403b-9b4e-0f35dcfb151b" idref="cd64dc3b-47a4-4a75-8f49-76467acfbc19" name="views" url="views">
+</livefolder>
+</project>
