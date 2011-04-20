@@ -34,6 +34,13 @@ app.get('/',function(req,res){
   });
 });
 
+app.get('/files',function(req,res){
+  var filesDir = './';
+  fs.readdir(filesDir,function(err,files){
+    return res.render('root', { files : files });
+  });
+});
+
 try {
   if (HTTP_port) {
     app.listen(HTTP_port);
