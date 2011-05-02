@@ -1,7 +1,10 @@
-var express = require('express');
-var fs = require('fs');
+var express = require('express') ,
+	url = require('url'),
+  fs = require('fs') ,
+  stat = require('node-static');
 var HTTP_port;
 var app = express.createServer();
+var staticSrv = new (stat.Server)('./');
 
 app.configure('dev', function(){
   HTTP_port = 60080 ;
@@ -20,7 +23,6 @@ app.configure('prod', function(){
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('views');
-  // => "/absolute/path/to/views"
   app.set('view engine', 'jade');
   app.use(express.methodOverride());
   app.use(express.bodyParser());
@@ -34,16 +36,17 @@ app.get('/',function(req,res){
   });
 });
 
-app.get('/files',function(req,res){
-  var filesDir = './';
-  fs.readdir(filesDir,function(err,files){
-    return res.render('root', { files : files });
-  });
+/*
+app.get('/*',function(req,res){
+  console.log("==>Static modules in use<==\n");
+  staticSrv.serveFile(filename,req,res);
 });
+*/
 
 try {
   if (HTTP_port) {
     app.listen(HTTP_port);
+		console.log("HTTPFileServer is ready and listening on port " + HTTP_port);
   } else {
     throw "No working env specified .. use \"NODE_ENV='prod' node app.js\" or \"NODE_ENV='dev' node app.js\""
   }
